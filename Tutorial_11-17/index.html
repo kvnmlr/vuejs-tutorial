@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>VueJS</title>
+        <link href='styles.css' rel='stylesheet'/>
+        <script src='../node_modules/vue/dist/vue.min.js'></script>
+        
+    </head>
+    <body>
+        <div id='vue-app'>
+            <p>{{title}}</p>
+            <greeting></greeting>
+            <h1>Conditionals</h1>
+            <button v-on:click="error = !error">Toggle Error</button>
+            <button v-on:click="success = !success">Toggle Success</button>
+
+            <p v-if="error">An error occurred</p>
+            <p v-else-if="success">We have success</p>
+            <p v-else>Nothing happened</p>
+
+            <p v-show="error">E</p>
+            <p v-show="success">S</p>
+
+            <h1>Loops</h1>
+            <ul>
+                <li v-for="character in characters">
+                    {{character}}
+                </li>
+            </ul>
+
+            <ul>
+                <li v-for="(ninja, index) in ninjas">
+                    {{index+1}}. {{ninja.name}} - {{ninja.age}}
+                </li>
+            </ul>
+
+            <template v-for="ninja in ninjas">
+                <h3 >{{ninja.name}}</h3>
+                <b>{{ninja.age}}</b>
+                <br>
+            </template>
+
+            <template v-for="ninja in ninjas">
+                <div v-for="(val, key) in ninja">
+                    <p>{{key}} : {{val}}</p>
+                </div>
+            </template>
+
+            <h1>Refs</h1>
+            <input type="text" ref="input">
+            <button v-on:click="readRefs">Submit</button>
+            <p>Your fav food: {{output}}</p>
+
+
+        </div>
+
+        <div id='vue-app-two'>
+            <h1>Reusable Components</h1>
+            <p>{{title}}</p>
+            <greeting></greeting>
+            <button v-on:click="changeTitle">Change App 1 Title</button>
+        </div>
+
+        <footer>
+            <script src="app.js"></script>
+        </footer>
+    </body>
+</html>
