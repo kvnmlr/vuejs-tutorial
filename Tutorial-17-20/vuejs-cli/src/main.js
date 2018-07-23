@@ -1,7 +1,10 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import App from './App.vue';
+import Ninjas from './Ninjas.vue';
+
+Vue.component('ninjasGlobal', Ninjas);
 
 new Vue({
   el: '#app',
   render: h => h(App)
-})
+});
