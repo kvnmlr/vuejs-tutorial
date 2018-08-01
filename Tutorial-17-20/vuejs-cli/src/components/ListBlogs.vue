@@ -17,7 +17,7 @@ export default {
     data () {
         return {
            posts: [],
-           search: '',
+           search: this.$route.params.search,
         }
     },
     computed: {

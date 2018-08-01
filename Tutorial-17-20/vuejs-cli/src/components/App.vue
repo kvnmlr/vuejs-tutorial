@@ -1,9 +1,7 @@
 <template>
 <div>
     <app-header v-on:changeTitle="updateTitle($event)" v-bind:title="title"></app-header>
-    <list-blogs></list-blogs>
-    <show-blogs></show-blogs>
-    <ninjas v-bind:ninjas="ninjas"></ninjas>
+    <router-view v-bind:ninjas="ninjas"></router-view> 
     <div>
         <keep-alive>
             <component v-bind:is="formComponent">

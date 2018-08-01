@@ -12,7 +12,7 @@
 <script>
 
 import ShowBlogs from './ShowBlogs.vue'
-import SearchMixin from '../mixins/searchMixin'
+import searchMixin from '../mixins/searchMixin'
 
 
 export default {
@@ -36,7 +36,7 @@ export default {
             return value.slice(0,100) + ' ...';
         }
     },
-    mixins:[SearchMixin]
+    mixins:[searchMixin]
 }
 </script>
 
