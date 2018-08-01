@@ -1,6 +1,7 @@
 <template>
 <div>
     <app-header v-on:changeTitle="updateTitle($event)" v-bind:title="title"></app-header>
+    <show-blogs></show-blogs>
     <ninjas v-bind:ninjas="ninjas"></ninjas>
     <div>
         <keep-alive>
@@ -19,8 +20,9 @@
                     <label>Anonymous</label>
                     <input type="checkbox" value="anonymous" v-model="blog.options"/>
                     <select v-model="blog.author">
-                        <option v-for="author in ninjas">{{ author.name }}</option>
+                        <option v-for="author in ninjas" v-bind:key='author-option'>{{ author.name }}</option>
                     </select>
+                    <button v-on:click.prevent="post">Add Post</button>
                 </div>
             </component>
         </keep-alive>
@@ -30,7 +32,7 @@
         <p>{{ blog.content }}</p>
         <p>Options:</p>
         <ul>
-            <li v-for="option in blog.options">{{ option }}</li>
+            <li v-for="option in blog.options" v-bind:key='option-element'>{{ option }}</li>
         </ul>
         <p>Author: {{ blog.author }}</p>
 
@@ -45,12 +47,14 @@ import Header from './Header.vue'
 import Footer from './Footer.vue'
 import Ninjas from './Ninjas.vue'
 import formHelper from './formhelper'
+import ShowBlogs from './ShowBlogs.vue'
 
 export default {
     components: {
         'app-header': Header,
         'app-footer': Footer,
         'ninjas': Ninjas,
+        'show-blogs': ShowBlogs,
         'form-helper': formHelper,
 
     },
@@ -79,7 +83,13 @@ export default {
     methods: {
         updateTitle: function(event) {
             this.title = event
-        }
+        },
+
+        post: function() {
+            this.$http.post('', {}) .then(function(data) {
+                console.log(data);
+            });
+        },
     }
 }
 </script>
