@@ -1,6 +1,7 @@
 <template>
 <div>
     <app-header v-on:changeTitle="updateTitle($event)" v-bind:title="title"></app-header>
+    <list-blogs></list-blogs>
     <show-blogs></show-blogs>
     <ninjas v-bind:ninjas="ninjas"></ninjas>
     <div>
@@ -48,6 +49,7 @@ import Footer from './Footer.vue'
 import Ninjas from './Ninjas.vue'
 import formHelper from './formhelper'
 import ShowBlogs from './ShowBlogs.vue'
+import ListBlogs from './ListBlogs.vue'
 
 export default {
     components: {
@@ -56,6 +58,7 @@ export default {
         'ninjas': Ninjas,
         'show-blogs': ShowBlogs,
         'form-helper': formHelper,
+        'list-blogs': ListBlogs
 
     },
     data () {

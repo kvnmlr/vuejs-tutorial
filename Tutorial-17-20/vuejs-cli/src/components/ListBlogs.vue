@@ -1,10 +1,9 @@
 <template>
-<div id="show-blogs">
+<div id="list-blogs">
     <h1>All Blog Articles</h1>
     <input type="text" v-model="search" placeholder="search"/>
     <div class="single-blog" v-for="post in filteredPosts">
         <h2>{{ post.title | to-uppercase}}</h2>
-        <p>{{ post.body | to-snippet}}</p>
     </div>
 </div>
 </template>
@@ -12,8 +11,7 @@
 <script>
 
 import ShowBlogs from './ShowBlogs.vue'
-import SearchMixin from '../mixins/searchMixin'
-
+import searchMixin from '../mixins/searchMixin'
 
 export default {
     data () {
@@ -36,7 +34,8 @@ export default {
             return value.slice(0,100) + ' ...';
         }
     },
-    mixins:[SearchMixin]
+    mixins:[searchMixin]
+
 }
 </script>
 
